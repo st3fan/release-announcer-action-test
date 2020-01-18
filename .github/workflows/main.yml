@@ -1,0 +1,13 @@
+on:
+  release:
+    types: [published]
+
+jobs:
+  release-announcer:
+    name: This job announces new releases
+    runs-on: ubuntu-latest
+    steps:
+      - id: release-announcer
+        uses: st3fan/release-announcer-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
